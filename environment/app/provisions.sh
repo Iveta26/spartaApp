@@ -46,4 +46,4 @@ sudo npm install pm2 -g
 # npm install
 
 #pm2 runs app in the background
-pm2 start app.js
+# pm2 start app.js
