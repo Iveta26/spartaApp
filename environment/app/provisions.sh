@@ -39,7 +39,8 @@ sudo npm install pm2 -g
 
 # git clone https://github.com/Iveta26/spartaApp sparta_app
 
-cd sparta_app
+cd .
+cd app
 
 # downloads required dependencies for nodejs. checks for DB_HOST var
 npm install
