@@ -23,7 +23,7 @@ sudo sed -i 's#try_files $uri $uri/ =404;#proxy_pass http://localhost:3000;#g' /
 # restart to apply changes
 sudo systemctl restart nginx
 
-cat /etc/nginx/sites-available/default
+# cat /etc/nginx/sites-available/default
 
 # download node source
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
@@ -35,11 +35,12 @@ sudo apt install nodejs -y
 sudo npm install pm2 -g
 
 # create env var. Enter IP and port of the DB
-export DB_HOST=mongodb://172.166.128.199:27017/posts
+# export DB_HOST=mongodb://172.166.128.199:27017/posts
 
 git clone https://github.com/Iveta26/spartaApp sparta_app
 
-cd sparta_app
+cd .
+cd app
 
 # downloads required dependencies for nodejs. checks for DB_HOST var
 npm install
