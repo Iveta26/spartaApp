@@ -1,49 +1,29 @@
 #!/bin/bash
 
-# update <- to ensure package source list is up to date
-sudo apt update -y
+# Update the sources list
+sudo apt-get update -y
+
+# upgrade any packages available
+sudo apt-get upgrade -y
 
 
-# upgrade <- installs latests packages of linux
-sudo apt upgrade -y
+# install git
+sudo apt-get install git -y
 
-
-# install nginx
-sudo apt install nginx -y
-
-# enable nginx - when VM restarts nginx will automatically start
-sudo systemctl enable nginx
-
-# install sed
-sudo apt install sed -y
-
-# setup reverse proxy
-sudo sed -i 's#try_files $uri $uri/ =404;#proxy_pass http://localhost:3000;#g' /etc/nginx/sites-available/default
-
-# restart to apply changes
-sudo systemctl restart nginx
-
-# cat /etc/nginx/sites-available/default
-
-# download node source
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-
-# install node js
-sudo apt install nodejs -y
+# install nodejs
+sudo apt-get install python-software-properties -y
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install nodejs -y
 
 # install pm2
 sudo npm install pm2 -g
 
-# create env var. Enter IP and port of the DB
-# export DB_HOST=mongodb://172.166.128.199:27017/posts
+sudo apt-get install nginx -y
 
-# git clone https://github.com/Iveta26/spartaApp sparta_app
+# remove the old file and add our one
+#sudo rm /etc/nginx/sites-available/default
+#sudo cp /home/ubuntu/sre_jenkins_cicd/environment/app/nginx.default /etc/nginx/sites-available/default
 
-cd .
-cd app
-
-# downloads required dependencies for nodejs. checks for DB_HOST var
-npm install
-
-#pm2 runs app in the background
-pm2 start app.js
+# finally, restart the nginx service so the new config takes hold
+#sudo service nginx restart
+#sudo service nginx enable
