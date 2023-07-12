@@ -37,7 +37,7 @@ sudo npm install pm2 -g
 # create env var. Enter IP and port of the DB
 # export DB_HOST=mongodb://172.166.128.199:27017/posts
 
-git clone https://github.com/Iveta26/spartaApp sparta_app
+#git clone https://github.com/Iveta26/spartaApp sparta_app
 
 cd .
 cd app
